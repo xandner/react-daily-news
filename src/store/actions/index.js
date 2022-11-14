@@ -7,5 +7,5 @@ export const getPosts=(homePosts,page,order,limit)=>({
 
 export const addNewsletter=(data)=>({
     type:ADD_NEWSLETTER,
-    payload:api.addNewsLetter(data)
+    payload: api.addNewsletter(data)
 })

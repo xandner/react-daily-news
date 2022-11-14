@@ -1,18 +1,37 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Form, Button } from "react-bootstrap";
 
-import {addNewsletter} from "../../../store/actions"
+import { addNewsletter } from "../../../store/actions"
+import { showToast } from "./toast";
 
 const NewsLatter = () => {
-  const userData = useSelector((state) => state.user);
+  const userData = useSelector(state => state.user);
   const dispatch = useDispatch();
   const textInput = useRef();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const value = textInput.current.value;
-    dispatch(addNewsletter({email:value})) 
-  };
+    dispatch(addNewsletter({ email: value }))
+  }
+
+  useEffect(() => {
+    if (userData) {
+      if (userData.newsletter) {
+        if (userData.newsletter === "added") {
+          showToast('SUCCESS', "Thank you for subscribing !!!");
+          textInput.current.value = "";
+          // dispatch(clearNewsletter())
+        } else {
+          showToast('ERROR', "You are already on the DB");
+          textInput.current.value = "";
+          // dispatch(clearNewsletter())
+        }
+      }
+    }
+  }, [userData]);
+
 
   return (
     <>
