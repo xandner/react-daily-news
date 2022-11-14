@@ -11,6 +11,7 @@ const AppRoutes = () => (
     <MainLayout>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/article/:id"   element={<Home />} />
       </Routes>
     </MainLayout>
   </BrowserRouter>
