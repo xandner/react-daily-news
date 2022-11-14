@@ -4,7 +4,7 @@ export const getPosts = async (prevSate, page = 1, order = "asc", limit = "10") 
     try {
         const response = await axios.get(`${URL_SERV}/posts?_page=${page}&_limit=${limit}&_order=${order}&$_sort=id`)
         return {
-            posts: prevSate.posts ? [...prevSate.posts, response.data] : response.data,
+            posts: prevSate.posts ? [...prevSate.posts, ...response.data] : response.data,
             page: page,
             end: response.data.length === 0 ? true : false
         }
@@ -12,3 +12,12 @@ export const getPosts = async (prevSate, page = 1, order = "asc", limit = "10") 
         throw error
     }
 }
+
+export const addNewsletter =async(data)=>{
+    try {
+        
+    } catch (error) {
+        throw error
+    }
+}
+
