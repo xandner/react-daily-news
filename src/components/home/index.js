@@ -1,11 +1,12 @@
 import React from "react";
 import HomePosts from "./homePosts";
-import NewsLatter from "./utils/newsLetter";
+import NewsLetter from "../utils/newsLetter";
+
 const Home = () => {
   return (
     <>
       <HomePosts />
-      <NewsLatter/>
+      <NewsLetter />
     </>
   );
 };

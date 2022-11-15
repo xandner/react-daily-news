@@ -5,10 +5,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 const MainLayout = (props) => {
   return (
-    <Container>
+    <Container className="mt-5 mb-5">
       {props.children}
-      <ToastContainer className="mt-5 mb-5" />
+      <ToastContainer />
     </Container>
   );
 };
+
 export default MainLayout;
